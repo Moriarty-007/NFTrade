@@ -57,7 +57,7 @@ export default function ResellNFT() {
             <img className="rounded mt-4" width="350" src={image} />
           )
         }
-        <button onClick={listNFTForSale} className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg">
+        <button onClick={listNFTForSale} className="font-bold mt-4 bg-red-500 text-white rounded p-4 shadow-lg">
           List NFT
         </button>
       </div>
