@@ -3,6 +3,7 @@ import { ethers } from 'ethers'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import Web3Modal from 'web3modal'
+import Image from 'next/image'
 
 import {
   marketplaceAddress

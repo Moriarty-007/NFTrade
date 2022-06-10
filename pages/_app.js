@@ -1,6 +1,7 @@
 /* pages/_app.js */
 import '../styles/globals.css'
 import Link from 'next/link'
+import Image from 'next/image'
 
 function MyApp({ Component, pageProps }) {
   return (
