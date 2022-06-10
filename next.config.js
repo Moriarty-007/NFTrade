@@ -1,7 +1,7 @@
 module.exports = {
+  reactStrictMode: true,
   images: {
-    reactStrictMode: true,
     domains: ['ipfs.infura.io'],
-    eslint: { ignoreDuringBuilds: true },
   },
+  eslint: { ignoreDuringBuilds: true },
 }
