@@ -11,7 +11,9 @@ import {
   marketplaceAddress
 } from '../config'
 
-import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json'
+import { abi } from "../constants";
+
+/*import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json'*/
 
 export default function CreateItem() {
   const [fileUrl, setFileUrl] = useState(null)
@@ -59,7 +61,7 @@ export default function CreateItem() {
 
     /* next, create the item */
     const price = ethers.utils.parseUnits(formInput.price, 'ether')
-    let contract = new ethers.Contract(marketplaceAddress, NFTMarketplace.abi, signer)
+    let contract = new ethers.Contract(marketplaceAddress, abi, signer)
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()
     let transaction = await contract.createToken(url, price, { value: listingPrice })
@@ -94,7 +96,7 @@ export default function CreateItem() {
         />
         {
           fileUrl && (
-            <Image className="rounded mt-4" width="350" src={fileUrl} />
+            <Image className="rounded mt-4" width="310" height="350" src={fileUrl} />
           )
         }
         <button onClick={listNFTForSale} className="font-bold mt-4 bg-red-500 text-white rounded p-4 shadow-lg">

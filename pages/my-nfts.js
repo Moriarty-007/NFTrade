@@ -9,7 +9,9 @@ import {
   marketplaceAddress
 } from '../config'
 
-import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json'
+import { abi } from "../constants";
+
+/*import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json'*/
 
 export default function MyAssets() {
   const [nfts, setNfts] = useState([])
@@ -27,7 +29,7 @@ export default function MyAssets() {
     const provider = new ethers.providers.Web3Provider(connection)
     const signer = provider.getSigner()
 
-    const marketplaceContract = new ethers.Contract(marketplaceAddress, NFTMarketplace.abi, signer)
+    const marketplaceContract = new ethers.Contract(marketplaceAddress, abi, signer)
     const data = await marketplaceContract.fetchMyNFTs()
 
     const items = await Promise.all(data.map(async i => {
